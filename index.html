@@ -1,701 +1,408 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Malla de Lulú Nerda</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Malla De Lulú Nerda</title>
 
-    :root {
-      --bg: #fff8fc;
-      --bg-soft: #fff1f7;
-      --card: rgba(255, 255, 255, 0.9);
-      --card-strong: #ffffff;
-      --text: #70475d;
-      --muted: #9c7c8f;
-      --primary: #f4aac8;
-      --primary-strong: #e98bb6;
-      --secondary: #f9d5e6;
-      --accent: #ffe4f0;
-      --success: #eefbe9;
-      --success-border: #9dd2a1;
-      --locked: #f7edf3;
-      --locked-border: #dfc8d4;
-      --shadow: 0 16px 38px rgba(231, 151, 186, 0.16);
-      --shadow-soft: 0 10px 22px rgba(231, 151, 186, 0.12);
-      --radius: 24px;
-      --radius-sm: 18px;
-    }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;600;700&display=swap');
 
-    * {
-      box-sizing: border-box;
-    }
+:root{
+--rosa1:#f9c8dc;
+--rosa2:#f3a9c9;
+--rosa3:#ffe6f2;
+--texto:#6b4156;
+--gris:#9c7b8c;
+--verde:#eaf9e8;
+--verdeB:#9dd2a1;
+--bloq:#f7edf3;
+--bloqB:#dcc5d1;
+--sombra:0 12px 30px rgba(232,150,186,.18);
+--radius:20px;
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
+*{box-sizing:border-box}
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: 'Nunito', 'Segoe UI', Tahoma, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, #ffeaf4 0%, transparent 30%),
-        radial-gradient(circle at top right, #ffe2f0 0%, transparent 25%),
-        linear-gradient(180deg, #fffafd 0%, #fff4f9 50%, #fffafd 100%);
-    }
+body{
+margin:0;
+font-family:'Nunito',sans-serif;
+background:linear-gradient(180deg,#fff9fc,#fff1f7);
+color:var(--texto);
+}
 
-    .page {
-      padding: 26px 18px 40px;
-      max-width: 1900px;
-      margin: 0 auto;
-    }
+.page{
+padding:30px 20px 40px;
+max-width:1900px;
+margin:auto;
+}
 
-    .hero {
-      background: linear-gradient(135deg, rgba(255,255,255,.92), rgba(255,241,247,.94));
-      border: 1px solid rgba(239, 189, 214, 0.86);
-      border-radius: 34px;
-      padding: 30px 30px 26px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
-      margin-bottom: 26px;
-      position: relative;
-      overflow: hidden;
-    }
+.hero{
+background:white;
+padding:30px;
+border-radius:30px;
+box-shadow:var(--sombra);
+margin-bottom:30px;
+}
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 34px;
-      pointer-events: none;
-      background: linear-gradient(120deg, rgba(255,255,255,0.2), transparent 40%, rgba(255,255,255,0.22));
-    }
+h1{
+margin:0 0 12px 0;
+font-family:'Playfair Display',serif;
+font-size:clamp(2rem,2.8vw,3rem);
+color:#c46a95;
+}
 
-    h1 {
-      margin: 0 0 10px;
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(2rem, 2.8vw, 3rem);
-      letter-spacing: 0.02em;
-      color: #c16b97;
-    }
+.subtitle{
+margin:0;
+font-size:1rem;
+line-height:1.7;
+color:var(--gris);
+}
 
-    .subtitle {
-      margin: 0;
-      line-height: 1.7;
-      color: var(--muted);
-      max-width: 1050px;
-      font-size: 1rem;
-      font-weight: 600;
-    }
+.actions{
+margin-top:20px;
+}
 
-    .stats {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 18px;
-    }
+button{
+border:none;
+border-radius:999px;
+padding:12px 18px;
+font-size:.95rem;
+font-weight:700;
+cursor:pointer;
+box-shadow:var(--sombra);
+background:linear-gradient(135deg,var(--rosa1),var(--rosa2));
+color:white;
+}
 
-    .pill {
-      background: rgba(255,255,255,0.9);
-      border: 1px solid #efc8da;
-      border-radius: 999px;
-      padding: 10px 15px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      box-shadow: var(--shadow-soft);
-    }
+.grid{
+display:grid;
+grid-template-columns:repeat(10,minmax(240px,1fr));
+gap:18px;
+overflow-x:auto;
+}
 
-    .actions {
-      margin-top: 18px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
+.semester{
+background:white;
+border-radius:26px;
+padding:16px;
+box-shadow:var(--sombra);
+position:relative;
+}
 
-    button {
-      border: none;
-      border-radius: 999px;
-      padding: 12px 17px;
-      font-size: 0.96rem;
-      font-family: inherit;
-      font-weight: 800;
-      cursor: pointer;
-      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
-      box-shadow: var(--shadow-soft);
-    }
+.semester::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+right:0;
+height:8px;
+border-radius:26px 26px 0 0;
+background:linear-gradient(90deg,#f8bdd6,#ffddeb,#f7c6dc);
+}
 
-    button:hover {
-      transform: translateY(-1px);
-    }
+.semester h2{
+text-align:center;
+font-family:'Playfair Display',serif;
+font-size:1.1rem;
+margin:10px 0 15px;
+color:#b16289;
+}
 
-    .btn-primary {
-      background: linear-gradient(135deg, var(--primary), var(--primary-strong));
-      color: white;
-    }
+.subjects{
+display:grid;
+gap:12px;
+}
 
-    .btn-secondary {
-      background: white;
-      color: var(--text);
-      border: 1px solid #edc8d9;
-    }
+.subject{
+background:white;
+border-radius:var(--radius);
+padding:14px;
+border:1px solid transparent;
+box-shadow:var(--sombra);
+cursor:pointer;
+position:relative;
+transition:.2s;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(10, minmax(245px, 1fr));
-      gap: 18px;
-      align-items: start;
-      overflow-x: auto;
-      padding-bottom: 10px;
-    }
+.subject:hover{
+transform:translateY(-2px);
+}
 
-    .semester {
-      background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,246,250,.95));
-      border: 1px solid rgba(240, 199, 219, 0.86);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      padding: 16px;
-      min-height: 280px;
-      position: relative;
-    }
+.subject.approved{
+background:var(--verde);
+border-color:var(--verdeB);
+}
 
-    .semester::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 8px;
-      border-radius: 28px 28px 0 0;
-      background: linear-gradient(90deg, #f9bdd6, #ffddeb, #f7c6dc);
-    }
+.subject.locked{
+background:var(--bloq);
+border-color:var(--bloqB);
+cursor:not-allowed;
+opacity:.85;
+}
 
-    .semester h2 {
-      margin: 10px 0 14px;
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.15rem;
-      color: #b1638a;
-      text-align: center;
-    }
+.subject-title{
+font-weight:700;
+font-size:.95rem;
+padding-right:30px;
+margin:0 0 8px 0;
+}
 
-    .subjects {
-      display: grid;
-      gap: 12px;
-    }
+.meta{
+display:flex;
+justify-content:space-between;
+font-size:.8rem;
+color:var(--gris);
+}
 
-    .subject {
-      border-radius: var(--radius-sm);
-      padding: 15px 15px 13px;
-      position: relative;
-      border: 1px solid transparent;
-      background: var(--card-strong);
-      box-shadow: var(--shadow-soft);
-      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, opacity .18s ease;
-      cursor: pointer;
-      user-select: none;
-      outline: none;
-    }
+.badge{
+border-radius:999px;
+padding:4px 10px;
+font-weight:700;
+font-size:.75rem;
+}
 
-    .subject:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 24px rgba(231, 151, 186, 0.18);
-    }
+.available{background:#fff3f9;color:#b85c8c}
+.approvedBadge{background:#e8f9e6;color:#5c8e62}
+.lockedBadge{background:#f2e7ee;color:#907787}
 
-    .subject.approved {
-      background: linear-gradient(180deg, #fbfff9, #eefce9);
-      border-color: var(--success-border);
-    }
+.check{
+position:absolute;
+top:10px;
+right:10px;
+width:26px;
+height:26px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:.8rem;
+border:1px solid #efcade;
+background:#fff4fa;
+}
 
-    .subject.locked {
-      background: linear-gradient(180deg, #fcf6fa, #f5edf2);
-      border-color: var(--locked-border);
-      opacity: 0.88;
-      cursor: not-allowed;
-    }
+.tooltip{
+position:fixed;
+background:#5c3648;
+color:white;
+padding:8px 12px;
+font-size:.8rem;
+border-radius:10px;
+pointer-events:none;
+opacity:0;
+transition:.1s;
+z-index:100;
+}
 
-    .subject-title {
-      font-size: 0.98rem;
-      line-height: 1.38;
-      font-weight: 800;
-      margin: 0 0 10px;
-      padding-right: 32px;
-    }
+.tooltip.show{opacity:1}
 
-    .subject-meta {
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
-      align-items: center;
-      font-size: 0.82rem;
-      color: var(--muted);
-      font-weight: 700;
-    }
+.footer{
+margin-top:20px;
+text-align:center;
+font-size:.9rem;
+color:#8b6a7b;
+}
 
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 92px;
-      border-radius: 999px;
-      padding: 5px 11px;
-      font-weight: 800;
-      letter-spacing: 0.01em;
-      border: 1px solid transparent;
-    }
-
-    .badge.available {
-      background: #fff3f9;
-      color: #b85c8c;
-      border-color: #f3c9dc;
-    }
-
-    .badge.approved {
-      background: #ecfbe9;
-      color: #4f8f5d;
-      border-color: #bce0bf;
-    }
-
-    .badge.locked {
-      background: #f2e7ee;
-      color: #907787;
-      border-color: #d9c3cf;
-    }
-
-    .checkmark {
-      position: absolute;
-      right: 12px;
-      top: 12px;
-      width: 29px;
-      height: 29px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #fff4fa;
-      border: 1px solid #efcade;
-      color: #ca709b;
-      font-size: 0.96rem;
-      font-weight: 800;
-    }
-
-    .subject.approved .checkmark {
-      background: #ebf9e9;
-      border-color: #b8dbbc;
-      color: #5a9c67;
-    }
-
-    .subject.locked .checkmark {
-      background: #f1e7ed;
-      color: #a28b98;
-      border-color: #dcc8d3;
-    }
-
-    .tooltip {
-      position: fixed;
-      max-width: 290px;
-      background: rgba(96, 58, 78, 0.96);
-      color: white;
-      padding: 10px 12px;
-      border-radius: 14px;
-      font-size: 0.84rem;
-      line-height: 1.45;
-      box-shadow: 0 14px 30px rgba(82, 44, 64, 0.25);
-      pointer-events: none;
-      opacity: 0;
-      transform: translateY(6px);
-      transition: opacity .12s ease, transform .12s ease;
-      z-index: 100;
-      backdrop-filter: blur(6px);
-      font-weight: 700;
-    }
-
-    .tooltip.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .footer-note {
-      margin-top: 18px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.9rem;
-      font-weight: 700;
-    }
-
-    @media (max-width: 1200px) {
-      .grid {
-        grid-template-columns: repeat(10, minmax(225px, 1fr));
-      }
-    }
-
-    @media (max-width: 768px) {
-      .page {
-        padding: 16px 12px 30px;
-      }
-
-      .hero {
-        padding: 22px 20px;
-      }
-
-      .grid {
-        grid-template-columns: repeat(10, minmax(205px, 1fr));
-        gap: 14px;
-      }
-
-      h1 {
-        font-size: 1.9rem;
-      }
-    }
-  </style>
+</style>
 </head>
+
 <body>
-  <div class="page">
-    <section class="hero">
-      <h1>Malla de Lulú Nerda</h1>
-      <p class="subtitle">
-        Haz click sobre cada materia para marcarla como aprobada.
-        Las Asignaturas Con Prerrequisitos Se Desbloquean Automáticamente Cuando Cumples Lo Necesario
-      </p>
 
-      <div class="stats">
-        <div class="pill" id="progressText">0 De 47 Materias Aprobadas</div>
-        <div class="pill" id="percentText">Progreso: 0%</div>
-        <div class="pill" id="availableText">Disponibles Para Cursar: 0</div>
-      </div>
+<div class="page">
 
-      <div class="actions">
-        <button class="btn-primary" id="expandAvailable">Ver Materias Disponibles</button>
-        <button class="btn-secondary" id="resetProgress">Reiniciar Progreso</button>
-      </div>
-    </section>
+<section class="hero">
+<h1>Malla De Lulú Nerda</h1>
+<p class="subtitle">
+Haz clic en cada materia para marcarla como aprobada. Las materias con prerrequisitos se desbloquean automáticamente cuando cumples lo necesario. Tu progreso se guarda en este navegador.
+</p>
+</section>
 
-    <main class="grid" id="grid"></main>
-  </div>
+<main class="grid" id="grid"></main>
 
-  <div class="tooltip" id="tooltip"></div>
+<p class="footer">Nota: Si algun día lo lees... espero que te guste mucho 🩷</p>
 
-  <script>
-    const semesters = [
-      {
-        title: 'Primer Semestre',
-        subjects: [
-          { id: 'fund_admin', name: 'Fundamentos De Administración' },
-          { id: 'fund_cont_fin', name: 'Fundamentos De Contabilidad Financiera' },
-          { id: 'fund_econ', name: 'Fundamentos De Economía' },
-          { id: 'hab_com', name: 'Habilidades Comunicativas En Ciencias De Gestión' },
-          { id: 'calc_diff', name: 'Cálculo Diferencial' }
-        ]
-      },
-      {
-        title: 'Segundo Semestre',
-        subjects: [
-          { id: 'teo_org_1', name: 'Teoría Organizacional I', prereqs: ['fund_admin'] },
-          { id: 'fund_cont_gestion', name: 'Fundamentos De Contabilidad De Gestión', prereqs: ['fund_cont_fin'] },
-          { id: 'micro', name: 'Microeconomía', prereqs: ['calc_diff', 'fund_econ'] },
-          { id: 'informatica', name: 'Informática Aplicada Para La Gestión De Datos E Información' },
-          { id: 'prob_est', name: 'Probabilidad Y Estadística Fundamental', prereqs: ['calc_diff'] }
-        ]
-      },
-      {
-        title: 'Tercer Semestre',
-        subjects: [
-          { id: 'teo_org_2', name: 'Teoría Organizacional II', prereqs: ['teo_org_1'] },
-          { id: 'opt_disc_1', name: 'Optativa Disciplinar', alwaysUnlocked: true },
-          { id: 'macro', name: 'Macroeconomía', prereqs: ['fund_econ'] },
-          { id: 'analitica_1', name: 'Analítica De Negocios I', prereqs: ['calc_diff', 'prob_est', 'informatica'] },
-          { id: 'libre_1', name: 'Libre Elección', alwaysUnlocked: true }
-        ]
-      },
-      {
-        title: 'Cuarto Semestre',
-        subjects: [
-          { id: 'internacionalizacion', name: 'Internacionalización De La Empresa', prereqs: ['teo_org_2'] },
-          { id: 'fund_finanzas', name: 'Fundamentos De Finanzas', prereqs: ['fund_cont_fin'] },
-          { id: 'libre_2', name: 'Libre Elección', alwaysUnlocked: true },
-          { id: 'opt_disc_2', name: 'Optativa Disciplinar', alwaysUnlocked: true },
-          { id: 'derecho_comercial', name: 'Derecho Comercial, General Y Sociedades', prereqs: ['teo_org_2'] },
-          { id: 'ingles_4', name: 'Inglés IV', alwaysUnlocked: true }
-        ]
-      },
-      {
-        title: 'Quinto Semestre',
-        subjects: [
-          { id: 'derecho_laboral', name: 'Derecho De Las Relaciones Laborales', prereqs: ['teo_org_2'] },
-          { id: 'fund_mercadeo', name: 'Fundamentos De Mercadeo', prereqs: ['analitica_1'] },
-          { id: 'gestion_rh', name: 'Gestión De Recursos Humanos', prereqs: ['teo_org_2'] },
-          { id: 'opt_fb_1', name: 'Optativa De Formación Básica', alwaysUnlocked: true },
-          { id: 'operaciones_1', name: 'Gestión De Las Operaciones I', prereqs: ['fund_cont_gestion', 'prob_est'] }
-        ]
-      },
-      {
-        title: 'Sexto Semestre',
-        subjects: [
-          { id: 'emprendimiento', name: 'Emprendimiento Enfocado En La Generación De Valor', prereqs: ['fund_mercadeo', 'operaciones_1'] },
-          { id: 'finanzas_av', name: 'Finanzas Avanzadas', prereqs: ['fund_finanzas'] },
-          { id: 'comp_org', name: 'Comportamiento Organizacional', prereqs: ['gestion_rh', 'derecho_laboral'] },
-          { id: 'sig', name: 'Sistemas De Información Gerencial', prereqs: ['fund_mercadeo', 'fund_finanzas', 'operaciones_1', 'gestion_rh'] },
-          { id: 'operaciones_2', name: 'Gestión De Las Operaciones II', prereqs: ['operaciones_1', 'fund_mercadeo'] }
-        ]
-      },
-      {
-        title: 'Séptimo Semestre',
-        subjects: [
-          { id: 'estrategia', name: 'Estrategia', prereqs: ['internacionalizacion'] },
-          { id: 'estrategia_merc', name: 'Estrategia De Mercadeo', prereqs: ['fund_mercadeo'] },
-          { id: 'opt_fb_2', name: 'Optativa De Formación Básica', alwaysUnlocked: true },
-          { id: 'app_emp', name: 'Aplicaciones Empresariales', prereqs: ['sig'] },
-          { id: 'proyectos', name: 'Diseño, Gestión Y Evaluación De Proyectos', prereqs: ['finanzas_av', 'operaciones_2'] }
-        ]
-      },
-      {
-        title: 'Octavo Semestre',
-        subjects: [
-          { id: 'libre_3', name: 'Libre Elección', alwaysUnlocked: true },
-          { id: 'libre_4', name: 'Libre Elección', alwaysUnlocked: true },
-          { id: 'libre_5', name: 'Libre Elección', alwaysUnlocked: true },
-          { id: 'libre_6', name: 'Libre Elección', alwaysUnlocked: true },
-          { id: 'opt_disc_3', name: 'Optativa Disciplinar', alwaysUnlocked: true }
-        ]
-      },
-      {
-        title: 'Noveno Semestre',
-        subjects: [
-          { id: 'libre_7', name: 'Libre Elección', alwaysUnlocked: true },
-          { id: 'libre_8', name: 'Libre Elección', alwaysUnlocked: true },
-          { id: 'libre_9', name: 'Libre Elección', alwaysUnlocked: true },
-          { id: 'libre_10', name: 'Libre Elección', alwaysUnlocked: true },
-          { id: 'libre_11', name: 'Libre Elección', alwaysUnlocked: true }
-        ]
-      },
-      {
-        title: 'Décimo Semestre',
-        subjects: [
-          { id: 'trabajo_grado', name: 'Trabajo De Grado', alwaysUnlocked: true }
-        ]
-      }
-    ];
+</div>
 
-    const STORAGE_KEY = 'malla_admin_empresas_unal_bogota_v2';
-    const grid = document.getElementById('grid');
-    const tooltip = document.getElementById('tooltip');
-    const progressText = document.getElementById('progressText');
-    const percentText = document.getElementById('percentText');
-    const availableText = document.getElementById('availableText');
-    const resetButton = document.getElementById('resetProgress');
-    const expandAvailableButton = document.getElementById('expandAvailable');
+<div class="tooltip" id="tooltip"></div>
 
-    const allSubjects = semesters.flatMap((semester, semesterIndex) =>
-      semester.subjects.map(subject => ({
-        ...subject,
-        semester: semester.title,
-        semesterIndex
-      }))
-    );
+<script>
 
-    const subjectMap = Object.fromEntries(allSubjects.map(subject => [subject.id, subject]));
-    const dependentsMap = {};
+const semesters=[
+{title:'Primer Semestre',subjects:[
+{id:'fund_admin',name:'Fundamentos De Administración'},
+{id:'fund_cont_fin',name:'Fundamentos De Contabilidad Financiera'},
+{id:'fund_econ',name:'Fundamentos De Economía'},
+{id:'hab_com',name:'Habilidades Comunicativas En Ciencias De Gestión'},
+{id:'calc_diff',name:'Cálculo Diferencial'}]},
 
-    allSubjects.forEach(subject => {
-      (subject.prereqs || []).forEach(prereq => {
-        if (!dependentsMap[prereq]) dependentsMap[prereq] = [];
-        dependentsMap[prereq].push(subject.id);
-      });
-    });
+{title:'Segundo Semestre',subjects:[
+{id:'teo_org_1',name:'Teoría Organizacional I',prereqs:['fund_admin']},
+{id:'fund_cont_gestion',name:'Fundamentos De Contabilidad De Gestión',prereqs:['fund_cont_fin']},
+{id:'micro',name:'Microeconomía',prereqs:['calc_diff','fund_econ']},
+{id:'informatica',name:'Informática Aplicada Para La Gestión De Datos E Información'},
+{id:'prob_est',name:'Probabilidad Y Estadística Fundamental',prereqs:['calc_diff']}]},
 
-    let approved = loadApproved();
+{title:'Tercer Semestre',subjects:[
+{id:'teo_org_2',name:'Teoría Organizacional II',prereqs:['teo_org_1']},
+{id:'opt_disc_1',name:'Optativa Disciplinar',alwaysUnlocked:true},
+{id:'macro',name:'Macroeconomía',prereqs:['fund_econ']},
+{id:'analitica_1',name:'Analítica De Negocios I',prereqs:['calc_diff','prob_est','informatica']},
+{id:'libre_1',name:'Libre Elección',alwaysUnlocked:true}]},
 
-    function loadApproved() {
-      try {
-        const raw = localStorage.getItem(STORAGE_KEY);
-        const parsed = raw ? JSON.parse(raw) : [];
-        return new Set(Array.isArray(parsed) ? parsed.filter(id => subjectMap[id]) : []);
-      } catch {
-        return new Set();
-      }
-    }
+{title:'Cuarto Semestre',subjects:[
+{id:'internacionalizacion',name:'Internacionalización De La Empresa',prereqs:['teo_org_2']},
+{id:'fund_finanzas',name:'Fundamentos De Finanzas',prereqs:['fund_cont_fin']},
+{id:'libre_2',name:'Libre Elección',alwaysUnlocked:true},
+{id:'opt_disc_2',name:'Optativa Disciplinar',alwaysUnlocked:true},
+{id:'derecho_comercial',name:'Derecho Comercial General Y Sociedades',prereqs:['teo_org_2']},
+{id:'ingles_4',name:'Inglés IV',alwaysUnlocked:true}]},
 
-    function saveApproved() {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify([...approved]));
-    }
+{title:'Quinto Semestre',subjects:[
+{id:'derecho_laboral',name:'Derecho De Las Relaciones Laborales',prereqs:['teo_org_2']},
+{id:'fund_mercadeo',name:'Fundamentos De Mercadeo',prereqs:['analitica_1']},
+{id:'gestion_rh',name:'Gestión De Recursos Humanos',prereqs:['teo_org_2']},
+{id:'opt_fb_1',name:'Optativa De Formación Básica',alwaysUnlocked:true},
+{id:'operaciones_1',name:'Gestión De Las Operaciones I',prereqs:['fund_cont_gestion','prob_est']}]},
 
-    function isUnlocked(subject) {
-      if (subject.alwaysUnlocked) return true;
-      if (subject.semesterIndex === 0) return true;
-      const prereqs = subject.prereqs || [];
-      return prereqs.every(id => approved.has(id));
-    }
+{title:'Sexto Semestre',subjects:[
+{id:'emprendimiento',name:'Emprendimiento Enfocado En La Generación De Valor',prereqs:['fund_mercadeo','operaciones_1']},
+{id:'finanzas_av',name:'Finanzas Avanzadas',prereqs:['fund_finanzas']},
+{id:'comp_org',name:'Comportamiento Organizacional',prereqs:['gestion_rh','derecho_laboral']},
+{id:'sig',name:'Sistemas De Información Gerencial',prereqs:['fund_mercadeo','fund_finanzas','operaciones_1','gestion_rh']},
+{id:'operaciones_2',name:'Gestión De Las Operaciones II',prereqs:['operaciones_1','fund_mercadeo']}]},
 
-    function missingPrereqs(subject) {
-      return (subject.prereqs || []).filter(id => !approved.has(id)).map(id => subjectMap[id]?.name || id);
-    }
+{title:'Séptimo Semestre',subjects:[
+{id:'estrategia',name:'Estrategia',prereqs:['internacionalizacion']},
+{id:'estrategia_merc',name:'Estrategia De Mercadeo',prereqs:['fund_mercadeo']},
+{id:'opt_fb_2',name:'Optativa De Formación Básica',alwaysUnlocked:true},
+{id:'app_emp',name:'Aplicaciones Empresariales',prereqs:['sig']},
+{id:'proyectos',name:'Diseño Gestión Y Evaluación De Proyectos',prereqs:['finanzas_av','operaciones_2']}]},
 
-    function getStatus(subject) {
-      if (approved.has(subject.id)) return 'approved';
-      if (isUnlocked(subject)) return 'available';
-      return 'locked';
-    }
+{title:'Octavo Semestre',subjects:[
+{id:'libre_3',name:'Libre Elección',alwaysUnlocked:true},
+{id:'libre_4',name:'Libre Elección',alwaysUnlocked:true},
+{id:'libre_5',name:'Libre Elección',alwaysUnlocked:true},
+{id:'libre_6',name:'Libre Elección',alwaysUnlocked:true},
+{id:'opt_disc_3',name:'Optativa Disciplinar',alwaysUnlocked:true}]},
 
-    function getDescendantsToClear(startId, visited = new Set()) {
-      const dependents = dependentsMap[startId] || [];
-      for (const depId of dependents) {
-        if (visited.has(depId)) continue;
-        if (approved.has(depId)) {
-          visited.add(depId);
-          getDescendantsToClear(depId, visited);
-        }
-      }
-      return visited;
-    }
+{title:'Noveno Semestre',subjects:[
+{id:'libre_7',name:'Libre Elección',alwaysUnlocked:true},
+{id:'libre_8',name:'Libre Elección',alwaysUnlocked:true},
+{id:'libre_9',name:'Libre Elección',alwaysUnlocked:true},
+{id:'libre_10',name:'Libre Elección',alwaysUnlocked:true},
+{id:'libre_11',name:'Libre Elección',alwaysUnlocked:true}]},
 
-    function toggleSubject(id) {
-      const subject = subjectMap[id];
-      if (!subject) return;
+{title:'Décimo Semestre',subjects:[
+{id:'trabajo_grado',name:'Trabajo De Grado',alwaysUnlocked:true}]}
+];
 
-      if (!approved.has(id) && !isUnlocked(subject)) return;
+const STORAGE_KEY='malla_lulu_nerda';
+const grid=document.getElementById('grid');
+const tooltip=document.getElementById('tooltip');
 
-      if (approved.has(id)) {
-        approved.delete(id);
-        const descendants = [...getDescendantsToClear(id)];
-        descendants.forEach(depId => approved.delete(depId));
-      } else {
-        approved.add(id);
-      }
+const allSubjects=semesters.flatMap((s,i)=>s.subjects.map(sub=>({...sub,semesterIndex:i})));
+const subjectMap=Object.fromEntries(allSubjects.map(s=>[s.id,s]));
 
-      saveApproved();
-      render();
-    }
+const dependents={};
+allSubjects.forEach(s=>{
+(s.prereqs||[]).forEach(p=>{
+if(!dependents[p])dependents[p]=[];
+dependents[p].push(s.id);
+});
+});
 
-    function createSubjectCard(subject) {
-      const status = getStatus(subject);
-      const card = document.createElement('article');
-      card.className = `subject ${status === 'approved' ? 'approved' : ''} ${status === 'locked' ? 'locked' : ''}`;
-      card.tabIndex = status === 'locked' ? -1 : 0;
-      card.dataset.id = subject.id;
+let approved=new Set(JSON.parse(localStorage.getItem(STORAGE_KEY)||"[]"));
 
-      const badgeLabel = status === 'approved'
-        ? 'Aprobada'
-        : status === 'available'
-          ? 'Disponible'
-          : 'Bloqueada';
+function save(){localStorage.setItem(STORAGE_KEY,JSON.stringify([...approved]));}
 
-      card.innerHTML = `
-        <div class="checkmark">${status === 'approved' ? '✓' : status === 'locked' ? '🔒' : '○'}</div>
-        <h3 class="subject-title">${subject.name}</h3>
-        <div class="subject-meta">
-          <span>${subject.prereqs?.length ? `Req: ${subject.prereqs.length}` : 'Sin Requisito'}</span>
-          <span class="badge ${status}">${badgeLabel}</span>
-        </div>
-      `;
+function unlocked(s){
+if(s.alwaysUnlocked) return true;
+if(s.semesterIndex===0) return true;
+return (s.prereqs||[]).every(p=>approved.has(p));
+}
 
-      if (status === 'locked') {
-        const missing = missingPrereqs(subject);
-        card.dataset.tooltip = `Falta Aprobar: ${missing.join(', ')}`;
-      }
+function missing(s){
+return (s.prereqs||[]).filter(p=>!approved.has(p)).map(p=>subjectMap[p].name);
+}
 
-      card.addEventListener('click', () => toggleSubject(subject.id));
-      card.addEventListener('keydown', event => {
-        if (event.key === 'Enter' || event.key === ' ') {
-          event.preventDefault();
-          toggleSubject(subject.id);
-        }
-      });
+function toggle(id){
+let s=subjectMap[id];
+if(!approved.has(id)&&!unlocked(s))return;
 
-      if (status === 'locked') {
-        card.addEventListener('mouseenter', showTooltip);
-        card.addEventListener('mousemove', moveTooltip);
-        card.addEventListener('mouseleave', hideTooltip);
-      }
+if(approved.has(id)){
+approved.delete(id);
+}
+else{
+approved.add(id);
+}
 
-      return card;
-    }
+save();
+render();
+}
 
-    function showTooltip(event) {
-      const text = event.currentTarget.dataset.tooltip;
-      if (!text) return;
-      tooltip.textContent = text;
-      tooltip.classList.add('show');
-      moveTooltip(event);
-    }
+function card(s){
+let status=approved.has(s.id)?'approved':(unlocked(s)?'available':'locked');
 
-    function moveTooltip(event) {
-      const margin = 16;
-      const x = Math.min(event.clientX + 18, window.innerWidth - tooltip.offsetWidth - margin);
-      const y = Math.min(event.clientY + 18, window.innerHeight - tooltip.offsetHeight - margin);
-      tooltip.style.left = `${x}px`;
-      tooltip.style.top = `${y}px`;
-    }
+let el=document.createElement('div');
+el.className=`subject ${status==='approved'?'approved':''} ${status==='locked'?'locked':''}`;
+el.dataset.id=s.id;
 
-    function hideTooltip() {
-      tooltip.classList.remove('show');
-    }
+let badge=status==='approved'?'approvedBadge':(status==='available'?'available':'lockedBadge');
 
-    function updateStats() {
-      const total = allSubjects.length;
-      const approvedCount = approved.size;
-      const availableCount = allSubjects.filter(subject => !approved.has(subject.id) && isUnlocked(subject)).length;
-      const percent = Math.round((approvedCount / total) * 100);
+el.innerHTML=`
+<div class="check">${status==='approved'?'✓':status==='locked'?'🔒':'○'}</div>
+<div class="subject-title">${s.name}</div>
+<div class="meta">
+<span>${s.prereqs?`Req: ${s.prereqs.length}`:'Sin Requisito'}</span>
+<span class="badge ${badge}">${status==='approved'?'Aprobada':status==='available'?'Disponible':'Bloqueada'}</span>
+</div>`;
 
-      progressText.textContent = `${approvedCount} De ${total} Materias Aprobadas`;
-      percentText.textContent = `Progreso: ${percent}%`;
-      availableText.textContent = `Disponibles Para Cursar: ${availableCount}`;
-    }
+if(status==='locked'){
+el.dataset.tip="Falta Aprobar: "+missing(s).join(', ');
 
-    function render() {
-      grid.innerHTML = '';
+el.addEventListener('mousemove',e=>{
+tooltip.textContent=el.dataset.tip;
+tooltip.classList.add('show');
+tooltip.style.left=e.pageX+15+'px';
+tooltip.style.top=e.pageY+15+'px';
+});
 
-      semesters.forEach(semester => {
-        const column = document.createElement('section');
-        column.className = 'semester';
+el.addEventListener('mouseleave',()=>tooltip.classList.remove('show'));
+}
 
-        const title = document.createElement('h2');
-        title.textContent = semester.title;
+el.onclick=()=>toggle(s.id);
 
-        const subjectsWrap = document.createElement('div');
-        subjectsWrap.className = 'subjects';
+return el;
+}
 
-        semester.subjects.forEach(subject => {
-          subjectsWrap.appendChild(createSubjectCard(subject));
-        });
+function render(){
 
-        column.appendChild(title);
-        column.appendChild(subjectsWrap);
-        grid.appendChild(column);
-      });
+grid.innerHTML='';
 
-      updateStats();
-    }
+semesters.forEach(sem=>{
 
-    resetButton.addEventListener('click', () => {
-      const confirmed = window.confirm('¿Seguro Que Quieres Borrar Todo Tu Progreso Guardado?');
-      if (!confirmed) return;
-      approved = new Set();
-      saveApproved();
-      render();
-    });
+let col=document.createElement('div');
+col.className='semester';
 
-    expandAvailableButton.addEventListener('click', () => {
-      const firstAvailable = [...document.querySelectorAll('.subject')].find(card => {
-        const id = card.dataset.id;
-        const subject = subjectMap[id];
-        return subject && !approved.has(id) && isUnlocked(subject);
-      });
+let title=document.createElement('h2');
+title.textContent=sem.title;
 
-      if (firstAvailable) {
-        firstAvailable.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
-        firstAvailable.animate(
-          [
-            { transform: 'scale(1)', boxShadow: '0 10px 22px rgba(231, 151, 186, 0.12)' },
-            { transform: 'scale(1.02)', boxShadow: '0 16px 30px rgba(231, 151, 186, 0.24)' },
-            { transform: 'scale(1)', boxShadow: '0 10px 22px rgba(231, 151, 186, 0.12)' }
-          ],
-          { duration: 900, easing: 'ease' }
-        );
-      }
-    });
+let wrap=document.createElement('div');
+wrap.className='subjects';
 
-    render();
-  </script>
+sem.subjects.forEach(s=>wrap.appendChild(card(s)));
+
+col.appendChild(title);
+col.appendChild(wrap);
+
+grid.appendChild(col);
+
+});
+}
+
+render();
+
+</script>
+
 </body>
 </html>
