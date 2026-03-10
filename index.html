@@ -5,25 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Malla Interactiva - Administración de Empresas UNAL Bogotá</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap');
+
     :root {
-      --bg: #fff7fb;
-      --bg-soft: #fff0f7;
-      --card: rgba(255, 255, 255, 0.82);
+      --bg: #fff8fc;
+      --bg-soft: #fff1f7;
+      --card: rgba(255, 255, 255, 0.9);
       --card-strong: #ffffff;
-      --text: #6b4259;
-      --muted: #9b7a8e;
-      --primary: #f6a8c9;
-      --primary-strong: #eb86b4;
-      --secondary: #f7cfe2;
-      --accent: #ffddea;
-      --success: #d9f4d8;
-      --success-border: #8fcf9f;
-      --locked: #f2e5ec;
-      --locked-border: #d7c1cd;
-      --shadow: 0 14px 35px rgba(231, 151, 186, 0.18);
-      --shadow-soft: 0 8px 18px rgba(231, 151, 186, 0.14);
-      --radius: 22px;
-      --radius-sm: 16px;
+      --text: #70475d;
+      --muted: #9c7c8f;
+      --primary: #f4aac8;
+      --primary-strong: #e98bb6;
+      --secondary: #f9d5e6;
+      --accent: #ffe4f0;
+      --success: #eefbe9;
+      --success-border: #9dd2a1;
+      --locked: #f7edf3;
+      --locked-border: #dfc8d4;
+      --shadow: 0 16px 38px rgba(231, 151, 186, 0.16);
+      --shadow-soft: 0 10px 22px rgba(231, 151, 186, 0.12);
+      --radius: 24px;
+      --radius-sm: 18px;
     }
 
     * {
@@ -37,55 +39,56 @@
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: "Trebuchet MS", "Segoe UI", Tahoma, sans-serif;
+      font-family: 'Nunito', 'Segoe UI', Tahoma, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, #ffeaf3 0%, transparent 30%),
-        radial-gradient(circle at top right, #ffe0ef 0%, transparent 25%),
-        linear-gradient(180deg, #fff9fc 0%, #fff4f9 50%, #fffafc 100%);
+        radial-gradient(circle at top left, #ffeaf4 0%, transparent 30%),
+        radial-gradient(circle at top right, #ffe2f0 0%, transparent 25%),
+        linear-gradient(180deg, #fffafd 0%, #fff4f9 50%, #fffafd 100%);
     }
 
     .page {
-      padding: 28px 18px 40px;
+      padding: 26px 18px 40px;
       max-width: 1900px;
       margin: 0 auto;
     }
 
     .hero {
-      background: linear-gradient(135deg, rgba(255,255,255,.88), rgba(255,240,247,.92));
-      border: 1px solid rgba(239, 189, 214, 0.8);
-      border-radius: 30px;
-      padding: 28px;
+      background: linear-gradient(135deg, rgba(255,255,255,.92), rgba(255,241,247,.94));
+      border: 1px solid rgba(239, 189, 214, 0.86);
+      border-radius: 34px;
+      padding: 30px 30px 26px;
       box-shadow: var(--shadow);
       backdrop-filter: blur(10px);
-      position: sticky;
-      top: 12px;
-      z-index: 30;
-      margin-bottom: 24px;
+      margin-bottom: 26px;
+      position: relative;
+      overflow: hidden;
     }
 
     .hero::after {
       content: "";
       position: absolute;
       inset: 0;
-      border-radius: 30px;
+      border-radius: 34px;
       pointer-events: none;
-      background: linear-gradient(120deg, rgba(255,255,255,0.2), transparent 40%, rgba(255,255,255,0.25));
+      background: linear-gradient(120deg, rgba(255,255,255,0.2), transparent 40%, rgba(255,255,255,0.22));
     }
 
     h1 {
-      margin: 0 0 8px;
-      font-size: clamp(1.8rem, 2.5vw, 2.7rem);
+      margin: 0 0 10px;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 2.8vw, 3rem);
       letter-spacing: 0.02em;
-      color: #b85c8c;
+      color: #c16b97;
     }
 
     .subtitle {
       margin: 0;
-      line-height: 1.6;
+      line-height: 1.7;
       color: var(--muted);
-      max-width: 980px;
-      font-size: 0.98rem;
+      max-width: 1050px;
+      font-size: 1rem;
+      font-weight: 600;
     }
 
     .stats {
@@ -96,16 +99,17 @@
     }
 
     .pill {
-      background: rgba(255,255,255,0.84);
+      background: rgba(255,255,255,0.9);
       border: 1px solid #efc8da;
       border-radius: 999px;
-      padding: 10px 14px;
-      font-size: 0.92rem;
+      padding: 10px 15px;
+      font-size: 0.95rem;
+      font-weight: 700;
       box-shadow: var(--shadow-soft);
     }
 
     .actions {
-      margin-top: 16px;
+      margin-top: 18px;
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
@@ -114,8 +118,10 @@
     button {
       border: none;
       border-radius: 999px;
-      padding: 11px 16px;
-      font-size: 0.95rem;
+      padding: 12px 17px;
+      font-size: 0.96rem;
+      font-family: inherit;
+      font-weight: 800;
       cursor: pointer;
       transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
       box-shadow: var(--shadow-soft);
@@ -138,7 +144,7 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(10, minmax(240px, 1fr));
+      grid-template-columns: repeat(10, minmax(245px, 1fr));
       gap: 18px;
       align-items: start;
       overflow-x: auto;
@@ -146,9 +152,9 @@
     }
 
     .semester {
-      background: linear-gradient(180deg, rgba(255,255,255,.88), rgba(255,245,250,.92));
-      border: 1px solid rgba(240, 199, 219, 0.85);
-      border-radius: 26px;
+      background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,246,250,.95));
+      border: 1px solid rgba(240, 199, 219, 0.86);
+      border-radius: 28px;
       box-shadow: var(--shadow);
       padding: 16px;
       min-height: 280px;
@@ -161,15 +167,16 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 7px;
-      border-radius: 26px 26px 0 0;
+      height: 8px;
+      border-radius: 28px 28px 0 0;
       background: linear-gradient(90deg, #f9bdd6, #ffddeb, #f7c6dc);
     }
 
     .semester h2 {
       margin: 10px 0 14px;
-      font-size: 1.06rem;
-      color: #af5f86;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.15rem;
+      color: #b1638a;
       text-align: center;
     }
 
@@ -180,7 +187,7 @@
 
     .subject {
       border-radius: var(--radius-sm);
-      padding: 14px 14px 12px;
+      padding: 15px 15px 13px;
       position: relative;
       border: 1px solid transparent;
       background: var(--card-strong);
@@ -197,23 +204,23 @@
     }
 
     .subject.approved {
-      background: linear-gradient(180deg, #f8fff7, #eefdec);
+      background: linear-gradient(180deg, #fbfff9, #eefce9);
       border-color: var(--success-border);
     }
 
     .subject.locked {
-      background: linear-gradient(180deg, #fbf5f8, #f5edf2);
+      background: linear-gradient(180deg, #fcf6fa, #f5edf2);
       border-color: var(--locked-border);
-      opacity: 0.85;
+      opacity: 0.88;
       cursor: not-allowed;
     }
 
     .subject-title {
-      font-size: 0.95rem;
-      line-height: 1.35;
-      font-weight: 700;
+      font-size: 0.98rem;
+      line-height: 1.38;
+      font-weight: 800;
       margin: 0 0 10px;
-      padding-right: 30px;
+      padding-right: 32px;
     }
 
     .subject-meta {
@@ -221,18 +228,19 @@
       justify-content: space-between;
       gap: 8px;
       align-items: center;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: var(--muted);
+      font-weight: 700;
     }
 
     .badge {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-width: 85px;
+      min-width: 92px;
       border-radius: 999px;
-      padding: 5px 10px;
-      font-weight: 700;
+      padding: 5px 11px;
+      font-weight: 800;
       letter-spacing: 0.01em;
       border: 1px solid transparent;
     }
@@ -259,8 +267,8 @@
       position: absolute;
       right: 12px;
       top: 12px;
-      width: 28px;
-      height: 28px;
+      width: 29px;
+      height: 29px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -268,8 +276,8 @@
       background: #fff4fa;
       border: 1px solid #efcade;
       color: #ca709b;
-      font-size: 0.95rem;
-      font-weight: 700;
+      font-size: 0.96rem;
+      font-weight: 800;
     }
 
     .subject.approved .checkmark {
@@ -286,13 +294,13 @@
 
     .tooltip {
       position: fixed;
-      max-width: 280px;
+      max-width: 290px;
       background: rgba(96, 58, 78, 0.96);
       color: white;
       padding: 10px 12px;
       border-radius: 14px;
       font-size: 0.84rem;
-      line-height: 1.4;
+      line-height: 1.45;
       box-shadow: 0 14px 30px rgba(82, 44, 64, 0.25);
       pointer-events: none;
       opacity: 0;
@@ -300,6 +308,7 @@
       transition: opacity .12s ease, transform .12s ease;
       z-index: 100;
       backdrop-filter: blur(6px);
+      font-weight: 700;
     }
 
     .tooltip.show {
@@ -311,12 +320,13 @@
       margin-top: 18px;
       text-align: center;
       color: var(--muted);
-      font-size: 0.88rem;
+      font-size: 0.9rem;
+      font-weight: 700;
     }
 
     @media (max-width: 1200px) {
       .grid {
-        grid-template-columns: repeat(10, minmax(220px, 1fr));
+        grid-template-columns: repeat(10, minmax(225px, 1fr));
       }
     }
 
@@ -326,14 +336,16 @@
       }
 
       .hero {
-        position: relative;
-        top: 0;
-        padding: 20px;
+        padding: 22px 20px;
       }
 
       .grid {
-        grid-template-columns: repeat(10, minmax(200px, 1fr));
+        grid-template-columns: repeat(10, minmax(205px, 1fr));
         gap: 14px;
+      }
+
+      h1 {
+        font-size: 1.9rem;
       }
     }
   </style>
@@ -341,29 +353,29 @@
 <body>
   <div class="page">
     <section class="hero">
-      <h1>Malla Interactiva · Administración de Empresas</h1>
+      <h1>Malla Interactiva · Administración De Empresas</h1>
       <p class="subtitle">
-        Universidad Nacional de Colombia · Sede Bogotá. Haz clic sobre cada materia para marcarla como aprobada.
-        Las asignaturas con prerrequisitos se desbloquean automáticamente cuando cumples lo necesario.
-        Tu progreso se guarda en este navegador.
+        Universidad Nacional De Colombia · Sede Bogotá. Haz Clic Sobre Cada Materia Para Marcarla Como Aprobada.
+        Las Asignaturas Con Prerrequisitos Se Desbloquean Automáticamente Cuando Cumples Lo Necesario.
+        Tu Progreso Se Guarda En Este Navegador.
       </p>
 
       <div class="stats">
-        <div class="pill" id="progressText">0 de 47 materias aprobadas</div>
+        <div class="pill" id="progressText">0 De 47 Materias Aprobadas</div>
         <div class="pill" id="percentText">Progreso: 0%</div>
-        <div class="pill" id="availableText">Disponibles para cursar: 0</div>
+        <div class="pill" id="availableText">Disponibles Para Cursar: 0</div>
       </div>
 
       <div class="actions">
-        <button class="btn-primary" id="expandAvailable">Ver materias disponibles</button>
-        <button class="btn-secondary" id="resetProgress">Reiniciar progreso</button>
+        <button class="btn-primary" id="expandAvailable">Ver Materias Disponibles</button>
+        <button class="btn-secondary" id="resetProgress">Reiniciar Progreso</button>
       </div>
     </section>
 
     <main class="grid" id="grid"></main>
 
     <p class="footer-note">
-      Nota: Libre Elección, Optativas, Inglés IV y Trabajo de grado aparecen desbloqueados desde el inicio, según lo solicitado.
+      Nota: Libre Elección, Optativas, Inglés IV Y Trabajo De Grado Aparecen Desbloqueados Desde El Inicio, Según Lo Solicitado.
     </p>
   </div>
 
@@ -372,88 +384,88 @@
   <script>
     const semesters = [
       {
-        title: 'Primer semestre',
+        title: 'Primer Semestre',
         subjects: [
-          { id: 'fund_admin', name: 'Fundamentos de Administración' },
-          { id: 'fund_cont_fin', name: 'Fundamentos de Contabilidad Financiera' },
-          { id: 'fund_econ', name: 'Fundamentos de Economía' },
-          { id: 'hab_com', name: 'Habilidades comunicativas en Ciencias de Gestión' },
-          { id: 'calc_diff', name: 'Cálculo diferencial' }
+          { id: 'fund_admin', name: 'Fundamentos De Administración' },
+          { id: 'fund_cont_fin', name: 'Fundamentos De Contabilidad Financiera' },
+          { id: 'fund_econ', name: 'Fundamentos De Economía' },
+          { id: 'hab_com', name: 'Habilidades Comunicativas En Ciencias De Gestión' },
+          { id: 'calc_diff', name: 'Cálculo Diferencial' }
         ]
       },
       {
-        title: 'Segundo semestre',
+        title: 'Segundo Semestre',
         subjects: [
           { id: 'teo_org_1', name: 'Teoría Organizacional I', prereqs: ['fund_admin'] },
-          { id: 'fund_cont_gestion', name: 'Fundamentos de contabilidad de gestión', prereqs: ['fund_cont_fin'] },
+          { id: 'fund_cont_gestion', name: 'Fundamentos De Contabilidad De Gestión', prereqs: ['fund_cont_fin'] },
           { id: 'micro', name: 'Microeconomía', prereqs: ['calc_diff', 'fund_econ'] },
-          { id: 'informatica', name: 'Informática Aplicada para la gestión de datos e información' },
-          { id: 'prob_est', name: 'Probabilidad y Estadística fundamental', prereqs: ['calc_diff'] }
+          { id: 'informatica', name: 'Informática Aplicada Para La Gestión De Datos E Información' },
+          { id: 'prob_est', name: 'Probabilidad Y Estadística Fundamental', prereqs: ['calc_diff'] }
         ]
       },
       {
-        title: 'Tercer semestre',
+        title: 'Tercer Semestre',
         subjects: [
           { id: 'teo_org_2', name: 'Teoría Organizacional II', prereqs: ['teo_org_1'] },
-          { id: 'opt_disc_1', name: 'Optativa disciplinar', alwaysUnlocked: true },
+          { id: 'opt_disc_1', name: 'Optativa Disciplinar', alwaysUnlocked: true },
           { id: 'macro', name: 'Macroeconomía', prereqs: ['fund_econ'] },
-          { id: 'analitica_1', name: 'Analítica de Negocios I', prereqs: ['calc_diff', 'prob_est', 'informatica'] },
+          { id: 'analitica_1', name: 'Analítica De Negocios I', prereqs: ['calc_diff', 'prob_est', 'informatica'] },
           { id: 'libre_1', name: 'Libre Elección', alwaysUnlocked: true }
         ]
       },
       {
-        title: 'Cuarto semestre',
+        title: 'Cuarto Semestre',
         subjects: [
-          { id: 'internacionalizacion', name: 'Internacionalización de la empresa', prereqs: ['teo_org_2'] },
-          { id: 'fund_finanzas', name: 'Fundamentos de finanzas', prereqs: ['fund_cont_fin'] },
+          { id: 'internacionalizacion', name: 'Internacionalización De La Empresa', prereqs: ['teo_org_2'] },
+          { id: 'fund_finanzas', name: 'Fundamentos De Finanzas', prereqs: ['fund_cont_fin'] },
           { id: 'libre_2', name: 'Libre Elección', alwaysUnlocked: true },
-          { id: 'opt_disc_2', name: 'Optativa disciplinar', alwaysUnlocked: true },
-          { id: 'derecho_comercial', name: 'Derecho comercial, general y sociedades', prereqs: ['teo_org_2'] },
+          { id: 'opt_disc_2', name: 'Optativa Disciplinar', alwaysUnlocked: true },
+          { id: 'derecho_comercial', name: 'Derecho Comercial, General Y Sociedades', prereqs: ['teo_org_2'] },
           { id: 'ingles_4', name: 'Inglés IV', alwaysUnlocked: true }
         ]
       },
       {
-        title: 'Quinto semestre',
+        title: 'Quinto Semestre',
         subjects: [
-          { id: 'derecho_laboral', name: 'Derecho de las relaciones laborales', prereqs: ['teo_org_2'] },
-          { id: 'fund_mercadeo', name: 'Fundamentos de mercadeo', prereqs: ['analitica_1'] },
-          { id: 'gestion_rh', name: 'Gestión de recursos humanos', prereqs: ['teo_org_2'] },
-          { id: 'opt_fb_1', name: 'Optativa de Formación Básica', alwaysUnlocked: true },
-          { id: 'operaciones_1', name: 'Gestión de las Operaciones I', prereqs: ['fund_cont_gestion', 'prob_est'] }
+          { id: 'derecho_laboral', name: 'Derecho De Las Relaciones Laborales', prereqs: ['teo_org_2'] },
+          { id: 'fund_mercadeo', name: 'Fundamentos De Mercadeo', prereqs: ['analitica_1'] },
+          { id: 'gestion_rh', name: 'Gestión De Recursos Humanos', prereqs: ['teo_org_2'] },
+          { id: 'opt_fb_1', name: 'Optativa De Formación Básica', alwaysUnlocked: true },
+          { id: 'operaciones_1', name: 'Gestión De Las Operaciones I', prereqs: ['fund_cont_gestion', 'prob_est'] }
         ]
       },
       {
-        title: 'Sexto semestre',
+        title: 'Sexto Semestre',
         subjects: [
-          { id: 'emprendimiento', name: 'Emprendimiento enfocado en la generación de valor', prereqs: ['fund_mercadeo', 'operaciones_1'] },
+          { id: 'emprendimiento', name: 'Emprendimiento Enfocado En La Generación De Valor', prereqs: ['fund_mercadeo', 'operaciones_1'] },
           { id: 'finanzas_av', name: 'Finanzas Avanzadas', prereqs: ['fund_finanzas'] },
           { id: 'comp_org', name: 'Comportamiento Organizacional', prereqs: ['gestion_rh', 'derecho_laboral'] },
-          { id: 'sig', name: 'Sistemas de Información Gerencial', prereqs: ['fund_mercadeo', 'fund_finanzas', 'operaciones_1', 'gestion_rh'] },
-          { id: 'operaciones_2', name: 'Gestión de las operaciones II', prereqs: ['operaciones_1', 'fund_mercadeo'] }
+          { id: 'sig', name: 'Sistemas De Información Gerencial', prereqs: ['fund_mercadeo', 'fund_finanzas', 'operaciones_1', 'gestion_rh'] },
+          { id: 'operaciones_2', name: 'Gestión De Las Operaciones II', prereqs: ['operaciones_1', 'fund_mercadeo'] }
         ]
       },
       {
-        title: 'Séptimo semestre',
+        title: 'Séptimo Semestre',
         subjects: [
           { id: 'estrategia', name: 'Estrategia', prereqs: ['internacionalizacion'] },
-          { id: 'estrategia_merc', name: 'Estrategia de mercadeo', prereqs: ['fund_mercadeo'] },
-          { id: 'opt_fb_2', name: 'Optativa de formación Básica', alwaysUnlocked: true },
-          { id: 'app_emp', name: 'Aplicaciones empresariales', prereqs: ['sig'] },
-          { id: 'proyectos', name: 'Diseño, gestión y evaluación de proyectos', prereqs: ['finanzas_av', 'operaciones_2'] }
+          { id: 'estrategia_merc', name: 'Estrategia De Mercadeo', prereqs: ['fund_mercadeo'] },
+          { id: 'opt_fb_2', name: 'Optativa De Formación Básica', alwaysUnlocked: true },
+          { id: 'app_emp', name: 'Aplicaciones Empresariales', prereqs: ['sig'] },
+          { id: 'proyectos', name: 'Diseño, Gestión Y Evaluación De Proyectos', prereqs: ['finanzas_av', 'operaciones_2'] }
         ]
       },
       {
-        title: 'Octavo semestre',
+        title: 'Octavo Semestre',
         subjects: [
           { id: 'libre_3', name: 'Libre Elección', alwaysUnlocked: true },
           { id: 'libre_4', name: 'Libre Elección', alwaysUnlocked: true },
           { id: 'libre_5', name: 'Libre Elección', alwaysUnlocked: true },
           { id: 'libre_6', name: 'Libre Elección', alwaysUnlocked: true },
-          { id: 'opt_disc_3', name: 'Optativa disciplinar', alwaysUnlocked: true }
+          { id: 'opt_disc_3', name: 'Optativa Disciplinar', alwaysUnlocked: true }
         ]
       },
       {
-        title: 'Noveno semestre',
+        title: 'Noveno Semestre',
         subjects: [
           { id: 'libre_7', name: 'Libre Elección', alwaysUnlocked: true },
           { id: 'libre_8', name: 'Libre Elección', alwaysUnlocked: true },
@@ -463,14 +475,14 @@
         ]
       },
       {
-        title: 'Décimo semestre',
+        title: 'Décimo Semestre',
         subjects: [
-          { id: 'trabajo_grado', name: 'Trabajo de grado', alwaysUnlocked: true }
+          { id: 'trabajo_grado', name: 'Trabajo De Grado', alwaysUnlocked: true }
         ]
       }
     ];
 
-    const STORAGE_KEY = 'malla_admin_empresas_unal_bogota_v1';
+    const STORAGE_KEY = 'malla_admin_empresas_unal_bogota_v2';
     const grid = document.getElementById('grid');
     const tooltip = document.getElementById('tooltip');
     const progressText = document.getElementById('progressText');
@@ -577,14 +589,14 @@
         <div class="checkmark">${status === 'approved' ? '✓' : status === 'locked' ? '🔒' : '○'}</div>
         <h3 class="subject-title">${subject.name}</h3>
         <div class="subject-meta">
-          <span>${subject.prereqs?.length ? `Req: ${subject.prereqs.length}` : 'Sin requisito'}</span>
+          <span>${subject.prereqs?.length ? `Req: ${subject.prereqs.length}` : 'Sin Requisito'}</span>
           <span class="badge ${status}">${badgeLabel}</span>
         </div>
       `;
 
       if (status === 'locked') {
         const missing = missingPrereqs(subject);
-        card.dataset.tooltip = `Falta aprobar: ${missing.join(', ')}`;
+        card.dataset.tooltip = `Falta Aprobar: ${missing.join(', ')}`;
       }
 
       card.addEventListener('click', () => toggleSubject(subject.id));
@@ -630,9 +642,9 @@
       const availableCount = allSubjects.filter(subject => !approved.has(subject.id) && isUnlocked(subject)).length;
       const percent = Math.round((approvedCount / total) * 100);
 
-      progressText.textContent = `${approvedCount} de ${total} materias aprobadas`;
+      progressText.textContent = `${approvedCount} De ${total} Materias Aprobadas`;
       percentText.textContent = `Progreso: ${percent}%`;
-      availableText.textContent = `Disponibles para cursar: ${availableCount}`;
+      availableText.textContent = `Disponibles Para Cursar: ${availableCount}`;
     }
 
     function render() {
@@ -661,7 +673,7 @@
     }
 
     resetButton.addEventListener('click', () => {
-      const confirmed = window.confirm('¿Seguro que quieres borrar todo tu progreso guardado?');
+      const confirmed = window.confirm('¿Seguro Que Quieres Borrar Todo Tu Progreso Guardado?');
       if (!confirmed) return;
       approved = new Set();
       saveApproved();
@@ -679,9 +691,9 @@
         firstAvailable.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
         firstAvailable.animate(
           [
-            { transform: 'scale(1)', boxShadow: '0 8px 18px rgba(231, 151, 186, 0.14)' },
-            { transform: 'scale(1.02)', boxShadow: '0 16px 30px rgba(231, 151, 186, 0.28)' },
-            { transform: 'scale(1)', boxShadow: '0 8px 18px rgba(231, 151, 186, 0.14)' }
+            { transform: 'scale(1)', boxShadow: '0 10px 22px rgba(231, 151, 186, 0.12)' },
+            { transform: 'scale(1.02)', boxShadow: '0 16px 30px rgba(231, 151, 186, 0.24)' },
+            { transform: 'scale(1)', boxShadow: '0 10px 22px rgba(231, 151, 186, 0.12)' }
           ],
           { duration: 900, easing: 'ease' }
         );
