@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Malla De Lulú Nerda</title>
 
 <style>
+
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;600;700&display=swap');
 
 :root{
@@ -43,6 +45,7 @@ padding:30px;
 border-radius:30px;
 box-shadow:var(--sombra);
 margin-bottom:30px;
+text-align:center;
 }
 
 h1{
@@ -57,22 +60,8 @@ margin:0;
 font-size:1rem;
 line-height:1.7;
 color:var(--gris);
-}
-
-.actions{
-margin-top:20px;
-}
-
-button{
-border:none;
-border-radius:999px;
-padding:12px 18px;
-font-size:.95rem;
-font-weight:700;
-cursor:pointer;
-box-shadow:var(--sombra);
-background:linear-gradient(135deg,var(--rosa1),var(--rosa2));
-color:white;
+max-width:900px;
+margin:auto;
 }
 
 .grid{
@@ -211,15 +200,19 @@ color:#8b6a7b;
 <div class="page">
 
 <section class="hero">
-<h1 style="text-align:center;">Malla De Lulú Nerda</h1>
+<h1>Malla De Lulú Nerda</h1>
+
 <p class="subtitle">
 Haz clic en cada materia para marcarla como aprobada. Las materias con prerrequisitos se desbloquean automáticamente cuando cumples lo necesario.
 </p>
+
 </section>
 
 <main class="grid" id="grid"></main>
 
-<p class="footer">Nota: Espero que le guste mucho a la niña nerda 🩷</p>
+<p class="footer">
+Nota: Espero que le guste mucho a la niña nerda 🩷
+</p>
 
 </div>
 
@@ -303,14 +296,6 @@ const tooltip=document.getElementById('tooltip');
 const allSubjects=semesters.flatMap((s,i)=>s.subjects.map(sub=>({...sub,semesterIndex:i})));
 const subjectMap=Object.fromEntries(allSubjects.map(s=>[s.id,s]));
 
-const dependents={};
-allSubjects.forEach(s=>{
-(s.prereqs||[]).forEach(p=>{
-if(!dependents[p])dependents[p]=[];
-dependents[p].push(s.id);
-});
-});
-
 let approved=new Set(JSON.parse(localStorage.getItem(STORAGE_KEY)||"[]"));
 
 function save(){localStorage.setItem(STORAGE_KEY,JSON.stringify([...approved]));}
@@ -329,18 +314,14 @@ function toggle(id){
 let s=subjectMap[id];
 if(!approved.has(id)&&!unlocked(s))return;
 
-if(approved.has(id)){
-approved.delete(id);
-}
-else{
-approved.add(id);
-}
+approved.has(id)?approved.delete(id):approved.add(id);
 
 save();
 render();
 }
 
 function card(s){
+
 let status=approved.has(s.id)?'approved':(unlocked(s)?'available':'locked');
 
 let el=document.createElement('div');
